@@ -18,6 +18,7 @@ import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -68,7 +69,8 @@ fun HomeScreen(
                 //edit 1.2 : event onClick
                 onClick = navigateToItemEntry,
                 shape = MaterialTheme.shapes.medium,
-                modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large))
+                modifier = Modifier.padding(dimensionResource(id = R.dimen
+                    .padding_large))
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
@@ -116,11 +118,13 @@ fun HomeBody(
 
 @Composable
 fun LoadingScreen(modifier: Modifier = Modifier) {
-    Image(
-        modifier = modifier.size(200.dp),
-        painter = painterResource(R.drawable.loading),
-        contentDescription = stringResource(R.string.loading)
-    )
+    Column(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        CircularProgressIndicator(modifier = Modifier.size(50.dp))
+    }
 }
 
 @Composable
@@ -141,7 +145,7 @@ fun ErrorScreen(retryAction: () -> Unit, modifier: Modifier = Modifier) {
 @Composable
 fun DaftarSiswa(
     itemSiswa : List<DataSiswa>,
-    //edit 2.1 : tambahkan parameter onSiswaClick
+    //edit 2.1 : tambahkab parameter onSiswaClick
     onSiswaClick: (DataSiswa) -> Unit,
     modifier: Modifier=Modifier
 ){
@@ -169,12 +173,10 @@ fun ItemSiswa(
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
-            modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large)),
-            verticalArrangement = Arrangement.spacedBy(
-                dimensionResource(
-                    id = R.dimen.padding_small
-                )
-            )
+            modifier = Modifier.padding(dimensionResource(id = R.dimen
+                .padding_large)),
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(
+                id = R.dimen.padding_small))
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth()
