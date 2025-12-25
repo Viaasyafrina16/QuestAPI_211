@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.localrest.Repository.RepositoryDataSiswa
 import com.example.localrest.modeldata.DataSiswa
+import com.example.localrest.view.route.DestinasiDetail
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import retrofit2.Response
